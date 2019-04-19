@@ -21,7 +21,7 @@ server <- function(input, output, session) {
     p1 <- get(y) %>% filter(Receiver_name_pos == player & PlayType != "No Play" & Season == input$year) %>%
       select(Receiver_name_pos, Season, PassAttempt, Reception, qtr, posteam)
     
-    if(nrow(targetdf) == 0){
+    if(nrow(p1) == 0){
       donut <- plot_ly(labels = NULL, values = 0) %>%
         add_pie(hole = 0.6) %>%
         layout(title = "Targets by Quarter",  showlegend = TRUE,
